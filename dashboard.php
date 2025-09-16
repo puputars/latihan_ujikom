@@ -40,7 +40,17 @@
 
         //menu dosen
         $("#m_dosen").click(function(){
-        alert("dosen");
+        loadDosen();
+        });
+
+        //menu jadwal
+        $("#jadwal").click(function(){
+        loadJadwal();
+        });
+
+        //menu krs
+        $("#krs").click(function(){
+        loadKRS();
         });
     });
 
@@ -48,6 +58,36 @@
     function loadMhs() {
             $.ajax({
                 url: 'mahasiswa/list.php',
+                type: 'get',
+                success: function(data) {
+                    $('#contentData').html(data);
+                }
+            });
+        }
+
+    function loadDosen() {
+            $.ajax({
+                url: 'dosen/list.php',
+                type: 'get',
+                success: function(data) {
+                    $('#contentData').html(data);
+                }
+            });
+        }
+
+    function loadJadwal() {
+            $.ajax({
+                url: 'jadwal/list.php',
+                type: 'get',
+                success: function(data) {
+                    $('#contentData').html(data);
+                }
+            });
+        }
+
+    function loadKRS() {
+            $.ajax({
+                url: 'krs/list.php',
                 type: 'get',
                 success: function(data) {
                     $('#contentData').html(data);
@@ -112,7 +152,7 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Master Data</h6>
-                        <a class="collapse-item" id="m_mahasiswa">Mahasiwa</a>
+                        <a class="collapse-item" id="m_mahasiswa">Mahasiswa</a>
                         <a class="collapse-item" id="m_dosen">Dosen</a>
                     </div>
                 </div>

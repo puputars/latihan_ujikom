@@ -73,7 +73,6 @@
                                     session_start();
                                     $db=new db;
 
-
                                     if(isset($_POST['login'])){
                                         $data=$db->get_user($_POST['username'],$_POST['password']);
                                         if($data->num_rows>0){
